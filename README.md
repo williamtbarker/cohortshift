@@ -1,5 +1,8 @@
 # CohortShift
 
+[![License](https://img.shields.io/github/license/williamtbarker/cohortshift)](https://github.com/williamtbarker/cohortshift/blob/main/LICENSE)
+[![Release](https://img.shields.io/github/v/release/williamtbarker/cohortshift?display_name=tag&sort=semver)](https://github.com/williamtbarker/cohortshift/releases)
+
 [![CI](https://github.com/williamtbarker/cohortshift/actions/workflows/ci.yml/badge.svg)](https://github.com/williamtbarker/cohortshift/actions/workflows/ci.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
