@@ -1,22 +1,25 @@
-# macOS setup and GitHub release
+# macOS development setup
 
-These commands assume the repository is `~/Documents/cohortshift`.
+Clone the repository into a directory of your choice:
+
+```bash
+git clone https://github.com/williamtbarker/cohortshift.git
+cd cohortshift
+```
 
 ## Verify locally
 
 ```bash
-cd ~/Documents/cohortshift
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -e '.[dev]'
-python -m ruff format .
-python -m ruff check --fix .
 ./scripts/verify.sh
 ```
 
-The initial Ruff commands may change formatting and import order. The verifier itself does not
-modify source files.
+The verifier checks formatting, lint, types, tests, the synthetic demonstration, and wheel
+creation. To apply formatting fixes while developing, use `python -m ruff format .` and review
+the diff before rerunning verification.
 
 ## Run the demonstration
 
@@ -35,26 +38,8 @@ cohortshift evaluate demo.csv \
 
 Both `demo.csv` and `demo-report/` are ignored by Git.
 
-## Publish
+## Contributing changes
 
-```bash
-git init
-git add .
-git commit -m "Initial release: leakage-resistant temporal model evaluation"
-git branch -M main
-gh repo create cohortshift --public --source=. --remote=origin --push
-```
-
-Recommended topics:
-
-```text
-python machine-learning temporal-validation data-drift model-evaluation reproducibility
-```
-
-## Optional tagged release
-
-```bash
-git tag -a v0.1.0 -m "CohortShift v0.1.0"
-git push origin v0.1.0
-gh release create v0.1.0 --generate-notes
-```
+See [CONTRIBUTING.md](CONTRIBUTING.md) for review expectations. Create a branch for
+your changes, rerun verification, and submit a pull request. Release tags should
+refer to commits that have passed the repository CI matrix.
